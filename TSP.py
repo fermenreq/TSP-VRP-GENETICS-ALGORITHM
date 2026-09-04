@@ -110,7 +110,7 @@ def fitnessTSP(chromosome):
     penalty_value = penalty(actualChromosome)
  
     for i in chromosome:
-        if count==7:
+        if count == len(actualChromosome) - 1:
             nextCity = actualChromosome[0]
         else:    
             temp = count+1
@@ -260,7 +260,7 @@ def genetic_algorithm_t2(Problem_Genetic,k,opt,ngen,size,ratio_cross,prob_mutate
     
         def mutate(Problem_Genetic,population,prob):
             j = 0
-            copy_population=population
+            copy_population= population
             for crom in population:
                 Problem_Genetic.mutation(crom,prob)
                 #Each time that some parent is crossed
@@ -269,7 +269,7 @@ def genetic_algorithm_t2(Problem_Genetic,k,opt,ngen,size,ratio_cross,prob_mutate
                     dictionary[str(population[j])]=dictionary[str(crom)]
                     #Then we remove the parent, because his mutated has been added.
                     del dictionary[str(copy_population[j])]
-                    j+=j
+                    j += 1
             return population
         
         directs = tournament_selection(Problem_Genetic, population, n_directs, k, opt)
